@@ -74,6 +74,39 @@ r_squared = 1 - (ss_residual / ss_total)
 print(f"Coefficient de détermination (R²): {r_squared:.4f}")
 
 """
+Question 3.b
+"""
+# La prédiction pour la ville 1 est déjà dans y_pred
+crime_predit_ville1 = y_pred[0]
+crime_reel_ville1 = crime[0]
+
+print(f"Taux de criminalité prédit pour la ville 1: {crime_predit_ville1:.4f}")
+print(f"Taux de criminalité réel pour la ville 1: {crime_reel_ville1:.4f}")
+print(f"Écart: {abs(crime_predit_ville1 - crime_reel_ville1):.4f}")
+
+"""
+Question 3.c
+"""
+# Calcul de l'écart absolu entre prédictions et valeurs réelles
+differences = np.abs(y - y_pred)
+# Recherche de l'indice minimisant cet écart
+best_city_index = np.argmin(differences)
+print(f"La ville la plus proche est la ville {best_city_index+1} avec un écart de {differences[best_city_index]:.4f}")
+
+"""
+Question 3.d
+"""
+variable_names = ["funding", "hs", "not_hs", "college", "college4"]
+# Coefficients (sans la constante theta[0])
+coefficients = theta[1:]
+# Recherche de la variable ayant la plus grande valeur absolue
+max_index = np.argmax(np.abs(coefficients))
+most_influential_var = variable_names[max_index]
+most_influential_coeff = coefficients[max_index]
+print(f"La variable la plus influente est: {most_influential_var}")
+print(f"avec un coefficient de: {most_influential_coeff:.4f}")
+
+"""
 II. Q1c
 """
 # Visualisation des résultats
