@@ -11,8 +11,15 @@ Edited on Sun Mar 23 2025 23:00:00 2025
 import numpy as np
 import matplotlib.pyplot as plt
 
-# fonction de lecture des données
 def read_data():
+    """
+    Lit les données du fichier 'crime.csv' et les retourne sous forme de tableau NumPy.
+    
+    Le fichier doit être au format CSV avec des virgules comme séparateurs.
+    
+    Returns:
+        numpy.ndarray: Un tableau contenant les données de criminalité chargées depuis le fichier.
+    """
     crime_data = np.genfromtxt('crime.csv', delimiter=',')
     return crime_data
 
