@@ -25,16 +25,17 @@ II. Q1a
 # Etant données X et y, la fonction np.linalg.lstsq(X, y, rcond=None) renvoie comme deux premières valeurs : la solution theta, puis l'erreur commise
 
 # Extraction des variables
-crime = crime_data[:, 0]  # taux global de criminalité
+crime = crime_data[:, 0]    # taux global de criminalité
 violent = crime_data[:, 1]  # taux de criminalité violente
 funding = crime_data[:, 2]  # financement annuel de la police
-hs = crime_data[:, 3]  # pourcentage avec 4 années d'études secondaires
-not_hs = crime_data[:, 4]  # pourcentage sans diplôme d'études secondaires
+hs = crime_data[:, 3]       # pourcentage avec 4 années d'études secondaires
+not_hs = crime_data[:, 4]   # pourcentage sans diplôme d'études secondaires
 college = crime_data[:, 5]  # pourcentage dans l'enseignement supérieur
-college4 = crime_data[:, 6]  # pourcentage avec 4 années d'études supérieures
+college4 = crime_data[:, 6] # pourcentage avec 4 années d'études supérieures
 
 # Préparation des données pour la régression
-X = np.column_stack((np.ones(len(crime)), funding, hs, not_hs, college, college4))  # ajout d'une colonne de 1 pour le terme constant
+# ajout d'une colonne de 1 pour le terme constant
+X = np.column_stack((np.ones(len(crime)), funding, hs, not_hs, college, college4))
 y = crime  # variable à prédire
 
 # Calcul de la solution des moindres carrés
